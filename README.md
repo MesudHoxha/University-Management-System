@@ -1,4 +1,3 @@
-
 # University Management System
 
 A distributed university management system built with **Django REST Framework** and **ReactJS**, designed to manage academic operations, roles, payments, library services, and more. This system implements secure role-based access, supports multi-tenancy, and offers API-level performance optimization.
@@ -16,6 +15,7 @@ This platform simulates a real-world academic administration system, where diffe
 ## 🚀 Technologies Used
 
 ### Backend:
+
 - Django 5.x
 - Django REST Framework
 - drf-yasg (Swagger)
@@ -25,12 +25,14 @@ This platform simulates a real-world academic administration system, where diffe
 - Django Signals
 
 ### Frontend:
+
 - ReactJS (bootstrapped with [Create React App](https://github.com/facebook/create-react-app))
 - Axios
 - Formik + Yup
 - Context API (AuthContext)
 
 ### Development Tools:
+
 - Visual Studio Code
 - Postman (API testing)
 - Git & GitHub (Version Control)
@@ -168,9 +170,7 @@ frontend/
 
 This structure ensures a clean, modular, and scalable codebase for managing university operations across various user roles. It follows best practices for full-stack development with Django and React.
 
-
 ---
-
 
 ## ⚙️ Installation Instructions
 
@@ -229,22 +229,27 @@ POST /api/token/
 ## 📚 Core Features
 
 ### 🎓 Academic
+
 - Manage Students, Professors, Subjects, Exams, Grades
 - Student Enrollments and Submissions
 - Schedule & Attendance tracking
 
 ### 💰 Finance & Scholarships
+
 - Monthly salary payments for staff
 - Scholarship creation, application and approval system
 
 ### 📘 Library
+
 - Add books, loan books to students, return tracking
 - Library and librarian managed per faculty
 
 ### 🏛️ Infrastructure
+
 - Faculties, Departments, Buildings, Rooms
 
 Each role logs into a separate dashboard where they can manage only what is allowed by their permissions. For example:
+
 - A librarian manages books and loans.
 - A finance user manages salaries and scholarships.
 - A student can view grades, schedules, and apply for scholarships.
@@ -259,7 +264,7 @@ Data is filtered based on the user's faculty. Secretaries, Professors and Studen
 
 This is achieved using a shared `TenantFilterMixin` that automatically filters queries based on the user's role and linked faculty:
 
-```python
+````python
 def get_queryset(self):
     return self.get_tenant_queryset(Student.objects.all(
 
@@ -287,51 +292,57 @@ class AuthTests(APITestCase):
             "password": "Admin123!"
         })
         self.assertEqual(response.status_code, 200)
-```
+````
 
 ---
 
 ## 🧭 API Endpoints Summary
 
-| Endpoint | Method | Description |
-|----------|--------|-------------|
-| `/api/token/` | POST | Get JWT token |
-| `/api/v1/students/` | GET, POST | List or add students |
-| `/api/v1/grades/` | GET, POST | View or submit grades |
-| `/api/v1/subjects/` | GET | List subjects by department |
-| `/api/v1/scholarship-applications/` | GET, POST | Apply for scholarship |
-| `/api/v1/payments/` | GET, POST | Staff payments |
+| Endpoint                            | Method    | Description                 |
+| ----------------------------------- | --------- | --------------------------- |
+| `/api/token/`                       | POST      | Get JWT token               |
+| `/api/v1/students/`                 | GET, POST | List or add students        |
+| `/api/v1/grades/`                   | GET, POST | View or submit grades       |
+| `/api/v1/subjects/`                 | GET       | List subjects by department |
+| `/api/v1/scholarship-applications/` | GET, POST | Apply for scholarship       |
+| `/api/v1/payments/`                 | GET, POST | Staff payments              |
 
 ---
 
 ## 📸 Screenshots
 
 ### 🧑‍💼 Admin Dashboard
+
 ![Admin Dashboard](./screenshots/admin_dashboard.png)
 
 All admin management buttons: students, professors, librarians, finance staff, secretaries.
 
 ### 🎓 Student Grades View
+
 ![Student Grades](./screenshots/student_grades.png)
 
 List of grades visible to a student after logging into their dashboard.
 
 ### 📘 Book Loan Panel
+
 ![Book Loan](./screenshots/book_loan_panel.png)
 
 Librarian panel for issuing books to students.
 
 ### 💰 Finance – Scholarship Management
+
 ![Finance Scholarships](./screenshots/finance_scholarships.png)
 
 Finance officer’s view for managing and approving scholarship applications.
 
 ### 🧑‍🏫 Professor Attendance Screen
+
 ![Professor Attendance](./screenshots/professor_attendance.png)
 
 Attendance registration screen used by a professor for a scheduled class.
 
 ### 🏢 Secretary – Subject Management
+
 ![Secretary Subjects](./screenshots/secretary_subjects.png)
 
 Subject and department management interface used by a faculty secretary.
@@ -341,9 +352,6 @@ Subject and department management interface used by a faculty secretary.
 ## 👥 Contributors
 
 - **Mesud Hoxha** – [mesud.hoxha@student.uni-pr.edu](mailto:mesud.hoxha@student.uni-pr.edu)
-- **Admir Rama** – [admir.rama@student.uni-pr.edu](mailto:admir.rama@student.uni-pr.edu)
-- **Dielli Doçi** – [dielli.doci@student.uni-pr.edu](mailto:dielli.doci@student.uni-pr.edu)
-- **Blerton Ismaili** – [blerton.ismaili@student.uni-pr.edu](mailto:blerton.ismaili@student.uni-pr.edu)
 
 ---
 
@@ -352,18 +360,6 @@ Subject and department management interface used by a faculty secretary.
 - GitHub repository and PRs to be linked manually.
 - Swagger and endpoints require valid authentication.
 - For questions, refer to contributors or course instructors.
-
----
-
-## 📋 Project Task Management
-
-For project planning and task tracking, we used **Monday.com**, an online project management tool.  
-Key tasks and development stages were organized and monitored throughout the project timeline.
-
-🔗 [View Project Board on Monday.com](https://view.monday.com/1967370212-a10064b5a34c7430ff83369944f85d47?r=euc1)
-
-
-📁 Code Repository: [Sistemet-e-Shperndara on GitHub](https://github.com/MesudHoxha/Sistemet-e-Shperndara.git)
 
 ---
 
